@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cupk.mapper.UserMapper">
+<!--    使用嵌套查询,包含多条sql-->
+<!--    <select id="findUserByID" resultMap="IDCardWithUserResult">-->
+<!--        select *-->
+<!--        from t_user-->
+<!--        where id = #{id}-->
+<!--    </select>-->
+<!--    <resultMap id="IDCardWithUserResult" type="com.cupk.pojo.User">-->
+<!--        <id property="id" column="id"></id>-->
+<!--        <result property="name" column="name"></result>-->
+<!--        <result property="password" column="password"></result>-->
+<!--        <result property="email" column="email"></result>-->
+<!--        <result property="phone" column="phone"></result>-->
+<!--        <association property="card" column="card_id" javaType="com.cupk.pojo.IDCard"-->
+<!--                     select="com.cupk.mapper.IDCardMapper.findCardByID"></association>-->
+<!--    </resultMap>-->
+
+<!--    嵌套结果，只需要一条SQL-->
+<!--    <select id="findUserByID" resultMap="IDCardWithUserResult">-->
+<!--        select u.*,ic.*-->
+<!--        from t_user u,t_idcard ic-->
+<!--        where u.id = #{id} and u.card_id=ic.id-->
+<!--    </select>-->
+<!--    <resultMap id="IDCardWithUserResult" type="com.cupk.pojo.User">-->
+<!--        <id property="id" column="id"></id>-->
+<!--        <result property="name" column="name"></result>-->
+<!--        <result property="password" column="password"></result>-->
+<!--        <result property="email" column="email"></result>-->
+<!--        <result property="phone" column="phone"></result>-->
+<!--        <association property="card" javaType="com.cupk.pojo.IDCard">-->
+<!--            <id property="id" column="card_id"></id>-->
+<!--            <result property="name" column="name"></result>-->
+<!--            <result property="address" column="address"></result>-->
+<!--            <result property="code" column="code"></result>-->
+<!--        </association>-->
+<!--    </resultMap>-->
+</mapper>

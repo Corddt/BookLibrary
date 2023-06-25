@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<script th:src="@{/js/book.js}"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>图书列表</title>
+</head>
+<body>
+<button onclick="deleteBooks()">批量删除</button>
+<form id="booksform" action="/book/delete" method="post">
+    <table class="tablecss">
+        <thead>
+        <tr>
+            <th><input type="checkbox"></th>
+            <th>编号</th>
+            <th>名称</th>
+            <th>ISBN</th>
+            <th>作者</th>
+            <th>出版社</th>
+            <th>出版日期</th>
+            <th>价格</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book,bookStat:${blist}">
+            <td>
+                <input type="checkbox" th:id="'ids_'+${book.id}" th:value="${book.id}" name="bookids">
+            </td>
+            <td th:text="${bookStat.index}"></td>
+            <td>[[${book.name}]]</td>
+            <td th:text="${book.ISBN}"></td>
+            <td th:text="${book.author}"></td>
+            <td th:text="${book.company}"></td>
+            <td th:text="${#dates.format(book.time,'YYYY-MM-dd')}"></td>
+            <td th:text="${book.price}"></td>
+            <td>
+                <a th:href="@{'/book/toupdate/'+${book.id}}">编辑</a>
+                <a th:href="@{'/book/deletebyid/'+${book.id}}">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+
+</body>
+</html>

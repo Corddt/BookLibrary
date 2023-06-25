@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改图书</title>
+</head>
+<body>
+<h2>修改图书</h2>
+<form action="/book/update" method="post">
+    <input id="id" name="id" type="hidden" th:value="${book.id}"><br><br>
+    请输入图书名称: <input id="name" name="name" type="text" th:value="${book.name}"><br><br>
+    请输入图书ISBN: <input id="ISBN" name="ISBN" type="text" th:value="${book.ISBN}"><br><br>
+    请输入图书作者: <input id="author" name="author" type="text" th:value="${book.author}"><br><br>
+    请输入图书价格: <input id="price" name="price" type="text" th:value="${book.price}"><br><br>
+    请输入图书出版社: <input id="company" name="company" type="text" th:value="${book.company}"><br><br>
+    请输入图书出版时间: <input id="time" name="time" type="date" th:value="${#dates.format(book.time,'YYYY-MM-dd')}"><br><br>
+    <input type="submit" value="确认">
+    <input type="reset" value="重置">
+</form>
+<button name="button" onclick="history.back()">返回</button>
+</body>
+</html>
